@@ -152,7 +152,7 @@ document.addEventListener("mouseup", function(){
 });
 
 
-var stompClient = null;
+  var stompClient = null;
 
 	        function setConnected(connected) {
 
@@ -162,7 +162,21 @@ var stompClient = null;
 	            document.getElementById('response').innerHTML = '';
 	        }
 
+	        function connect() {
 
+	            var socket = new SockJS('/chat');
+	            stompClient = Stomp.over(socket);
+
+	            stompClient.connect({}, function(frame) {
+
+	            	setConnected(true);
+	                console.log('Connected: ' + frame);
+	                stompClient.subscribe('/topic/messages', function(messageOutput) {
+
+	                    showMessageOutput(JSON.parse(messageOutput.body));
+	                });
+	            });
+	        }
 
 	        function disconnect() {
 
@@ -174,44 +188,57 @@ var stompClient = null;
 	            console.log("Disconnected");
 	        }
 
-	        function sendMessagePlay(currentTime) {
+	        function reload() {
+            	            var text = "reload";
+            	            stompClient.send("/app/chat", {}, JSON.stringify({'text':text}));
+            	        }
 
-	            var text = "play";
-	            stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
-	        }
+            	        function sendMessagePlay(currentTime) {
 
-	        function sendMessagePause(currentTime) {
+            	            var text = "play";
+            	            stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
+            	        }
 
-            	var text = "pause";
-            	stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
-            }
+            	        function sendMessagePause(currentTime) {
 
-            function sendSkip(currentTime) {
+                        	var text = "pause";
+                        	stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
+                        }
 
-                var text = "skip";
-                stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
-            }
-            function sendSpeed(currentTime) {
+                        function sendSkip(currentTime) {
 
-                 var text = "speed";
-                 stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
-            }
+                            var text = "skip";
+                            stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
+                        }
+                        function sendSpeed(currentTime) {
+
+                             var text = "speed";
+                             stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
+                        }
+
 
 	        function showMessageOutput(messageOutput) {
 	          if (messageOutput.text == "play") {
-	                mainVideo.currentTime = messageOutput.currentTime;
-            	    mainVideo.play() ;
+            	         mainVideo.currentTime = messageOutput.currentTime;
+                         mainVideo.play() ;
               }
               if (messageOutput.text == "pause") {
-                    mainVideo.currentTime = messageOutput.currentTime;
-                    mainVideo.pause();
-              }
-              if (messageOutput.text == "skip") {
-                    mainVideo.currentTime = messageOutput.currentTime;
-              }
-              if (messageOutput.text == "speed") {
-                    mainVideo.playbackRate = messageOutput.currentTime;
-              }
+                                  mainVideo.currentTime = messageOutput.currentTime;
+                                  mainVideo.pause();
+                            }
+                            if (messageOutput.text == "skip") {
+                                  mainVideo.currentTime = messageOutput.currentTime;
+                            }
+                            if (messageOutput.text == "speed") {
+                                  mainVideo.playbackRate = messageOutput.currentTime;
+                            }
+                            if (messageOutput.text == "reload") {
+                                  var response = document.getElementById('response');
+                                  setTimeout(function(){
+                                  		location.reload();
+                                  	}, 5000);
+
+                            }
 
                 console.log(messageOutput.text);
 	            var response = document.getElementById('response');

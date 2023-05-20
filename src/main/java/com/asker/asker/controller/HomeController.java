@@ -87,7 +87,7 @@ public class HomeController {
     @GetMapping("/p")
     public String d(){
 
-        return "dolbaeb";
+        return "ABOBA";
     }
 
     @MessageMapping("/chat")
