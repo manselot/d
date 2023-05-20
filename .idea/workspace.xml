@@ -13,15 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-<<<<<<< HEAD
         <option value="Kotlin Class" />
         <option value="Class" />
         <option value="HTML File" />
-=======
-        <option value="HTML File" />
-        <option value="Kotlin Class" />
-        <option value="Class" />
->>>>>>> d128868e53d49ac304840285e034afc8f6405863
       </list>
     </option>
   </component>
@@ -87,7 +81,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
@@ -115,35 +108,6 @@
       <recent name="C:\Users\as\Desktop\asker\src" />
       <recent name="C:\Users\as\Desktop\asker\src\main\resources\templates" />
       <recent name="C:\Users\as\Desktop\asker\src\main\resources\temp\2112" />
-=======
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/as/Desktop/asker/src/main/resources/keytool&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
-  }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources\keystore" />
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources\keytool" />
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources\media" />
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources" />
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources\images" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources\static" />
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources\templates" />
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources\static\media" />
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources" />
-      <recent name="C:\Users\as\Desktop\asker\src\main\resources\media" />
->>>>>>> d128868e53d49ac304840285e034afc8f6405863
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.asker.asker.model" />
