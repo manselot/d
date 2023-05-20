@@ -1,0 +1,7 @@
+# Project exclude paths
+<<<<<<< HEAD
+/target/
+=======
+/target/
+/src/main/resources/media/kup.mp4
+>>>>>>> d128868e53d49ac304840285e034afc8f6405863

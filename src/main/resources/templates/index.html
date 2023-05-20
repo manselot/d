@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <script src="/webjars/jquery/jquery.min.js"></script>
+  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+  <script src="/app.js"></script>
+  <meta charset="UTF-8">
+  <title>Home page</title>
+
+</head>
+<body>
+<video width="320" height="240" controls>
+  <source src="media/kup.mp4" type="video/mp4">
+</video>
+<h2>Welcome <span th:text="${count}"></span></h2>
+<div id="wrapper">
+  <div id='player_wrapper'>
+    <video id='video_player'>
+      <source src='media/kup.mp4' type='video/mp4'>
+    </video>
+    <div id='player_controls'>
+      <button onclick="play_vid()" id="play_button">play</button>
+      <button onclick="pause_vid()" id="pause_button">pause</button>
+      <input type="image" src="images/stop.png" onclick="stop_vid()" id="stop_button">
+      <img src="../images/volume.png" id="vol_img">
+      <input type="range" id="change_vol" onchange="change_vol()" step="0.05" min="0" max="1" value="1">
+    </div>
+  </div>
+</div>
+<br />
+<div>
+  <button id="connect" onclick="connect();">Connect</button>
+  <button id="disconnect" disabled="disabled" onclick="disconnect();">
+    Disconnect</button><br />
+  <div id="conversationDiv">
+
+    <input type="text" id="text" placeholder="Write a message..."/>
+    <button id="sendMessagePlay" onclick="sendMessagePlay();">Send</button>
+    <button id="sendMessagePause" onclick="sendMessagePause();" >Send</button>
+    <p id="response"></p>
+  </div>
+</div>
+<br />
+</body>
+</html>
