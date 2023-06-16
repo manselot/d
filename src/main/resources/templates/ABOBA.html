@@ -1,46 +1,56 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <script src="/webjars/jquery/jquery.min.js"></script>
-  <script src="/webjars/sockjs-client/sockjs.min.js"></script>
-  <script src="/webjars/stomp-websocket/stomp.min.js"></script>
-  <script src="/sc.js"></script>
-  <meta charset="UTF-8">
-  <title>Home page</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="../static/chat.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="../static/ch.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-</head>
-<body>
-<video width="320" height="240" controls>
-  <source src="media/kup.mp4" type="video/mp4">
-</video>
-<h2>Welcome <span th:text="${count}"></span></h2>
-<div id="wrapper">
-  <div id='player_wrapper'>
-    <video id='video_player'>
-      <source src='media/kup.mp4' type='video/mp4'>
-    </video>
-    <div id='player_controls'>
-      <button onclick="play_vid()" id="play_button">play</button>
-      <button onclick="pause_vid()" id="pause_button">pause</button>
-      <input type="image" src="images/stop.png" onclick="stop_vid()" id="stop_button">
-      <img src="../images/volume.png" id="vol_img">
-      <input type="range" id="change_vol" onchange="change_vol()" step="0.05" min="0" max="1" value="1">
+<div class="container">
+  <div class="row chat-window col-xs-5 col-md-3" id="chat_window_1" style="margin-left:10px;">
+    <div class="col-xs-12 col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading top-bar">
+          <div class="col-md-8 col-xs-8">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat</h3>
+          </div>
+          <div class="col-md-4 col-xs-4" style="text-align: right;">
+            <a href="#"><span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span></a>
+            <a href="#"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>
+          </div>
+        </div>
+        <div class="panel-body msg_container_base">
+            <div class="col-md-10 col-xs-10 ">
+              <div class="messages msg_sent">
+                <div id="conversationDiv1">
+                  <p id="r1"></p>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="input-group">
+            <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+            <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm" id="btn-chat">Send</button>
+                        </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<br />
-<div>
-  <button id="connect" onclick="connect();">Connect</button>
-  <button id="disconnect" disabled="disabled" onclick="disconnect();">
-    Disconnect</button><br />
-  <div id="conversationDiv">
 
-    <input type="text" id="text" placeholder="Write a message..."/>
-    <button id="sendMessagePlay" onclick="sendMessagePlay();">Send</button>
-    <button id="sendMessagePause" onclick="sendMessagePause();" >Send</button>
-    <p id="response"></p>
+  <div class="btn-group dropup">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      <span class="glyphicon glyphicon-cog"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#" id="new_chat"><span class="glyphicon glyphicon-plus"></span> Novo</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-list"></span> Ver outras</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-remove"></span> Fechar Tudo</a></li>
+      <li class="divider"></li>
+      <li><a href="#"><span class="glyphicon glyphicon-eye-close"></span> Invisivel</a></li>
+    </ul>
   </div>
 </div>
-<br />
-</body>
-</html>

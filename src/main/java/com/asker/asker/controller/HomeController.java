@@ -24,6 +24,8 @@ import java.util.Random;
 
 import com.asker.asker.model.Room;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
+
 @Controller
 public class HomeController {
     Room room = new Room();
@@ -32,7 +34,7 @@ public class HomeController {
 
     @GetMapping("/load/{id}")
     @ResponseBody
-    public ResponseEntity<Resource> join(@PathVariable String id) throws IOException {
+    public ResponseEntity<Resource> load(@PathVariable String id) throws IOException {
 
         File filename = new File("src/main/resources/temp/" + id +".mp4");
         Resource resource = new UrlResource(filename.toURI());
@@ -58,13 +60,13 @@ public class HomeController {
         return "index";
     }
     @GetMapping("/Create")
-    public String CreateRoom( Model model){
+    public RedirectView CreateRoom(Model model){
         String id = room.generationId();
         while (!room.roomisCreated(Integer.parseInt(id))) {
             id = room.generationId();
         }
         model.addAttribute("id", id);
-        return "video";
+        return new RedirectView("http://localhost:8080/Join/"+id);
     }
 
     @GetMapping("/Join/{id}")

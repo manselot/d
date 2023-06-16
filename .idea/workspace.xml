@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4b41c98-0285-4596-b2fa-61ad0dd9ca94" name="Changes" comment="reload after upload">
+    <list default="true" id="b4b41c98-0285-4596-b2fa-61ad0dd9ca94" name="Changes" comment="text update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asker/asker/Config/ConnectorConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asker/asker/Config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/asker/asker/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/asker/asker/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/sc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/sc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ABOBA.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ABOBA.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/video.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684583479052</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="text update">
+      <created>1685431593425</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685431593425</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -248,6 +260,17 @@
     </ignored-roots>
     <MESSAGE value="a" />
     <MESSAGE value="reload after upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="reload after upload" />
+    <MESSAGE value="text update" />
+    <option name="LAST_COMMIT_MESSAGE" value="text update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.FileNotFoundException" package="java.io" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

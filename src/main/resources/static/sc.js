@@ -155,10 +155,6 @@ document.addEventListener("mouseup", function(){
   var stompClient = null;
 
 	        function setConnected(connected) {
-
-	            document.getElementById('connect').disabled = connected;
-	            document.getElementById('disconnect').disabled = !connected;
-	            document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
 	            document.getElementById('response').innerHTML = '';
 	        }
 
@@ -189,62 +185,71 @@ document.addEventListener("mouseup", function(){
 	        }
 
 	        function reload() {
-            	            var text = "reload";
+            	            var text = "rvtjspxesmreload";
             	            stompClient.send("/app/chat", {}, JSON.stringify({'text':text}));
             	        }
+            	        function send() {
+            	        textarea = document.getElementById("btn-input");
+            	        text = textarea.value;
+                        stompClient.send("/app/chat", {}, JSON.stringify({'text':text}));
+                        }
 
             	        function sendMessagePlay(currentTime) {
 
-            	            var text = "play";
+            	            var text = "rvtjspxesmplay";
             	            stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
             	        }
 
             	        function sendMessagePause(currentTime) {
 
-                        	var text = "pause";
+                        	var text = "rvtjspxesmpause";
                         	stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
                         }
 
                         function sendSkip(currentTime) {
 
-                            var text = "skip";
+                            var text = "rvtjspxesmskip";
                             stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
                         }
                         function sendSpeed(currentTime) {
 
-                             var text = "speed";
+                             var text = "rvtjspxesmspeed";
                              stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
                         }
+                         function sendSpeed(currentTime) {
+                         var text = "rvtjspxesmspeed";
+                         stompClient.send("/app/chat", {}, JSON.stringify({'text':text,"currentTime":currentTime}));
+                         }
 
 
 	        function showMessageOutput(messageOutput) {
-	          if (messageOutput.text == "play") {
+	          if (messageOutput.text == "rvtjspxesmplay") {
             	         mainVideo.currentTime = messageOutput.currentTime;
                          mainVideo.play() ;
               }
-              if (messageOutput.text == "pause") {
+              if (messageOutput.text == "rvtjspxesmpause") {
                                   mainVideo.currentTime = messageOutput.currentTime;
                                   mainVideo.pause();
                             }
-                            if (messageOutput.text == "skip") {
+                            if (messageOutput.text == "rvtjspxesmskip") {
                                   mainVideo.currentTime = messageOutput.currentTime;
                             }
-                            if (messageOutput.text == "speed") {
+                            if (messageOutput.text == "rvtjspxesmspeed") {
                                   mainVideo.playbackRate = messageOutput.currentTime;
                             }
-                            if (messageOutput.text == "reload") {
+                            if (messageOutput.text == "rvtjspxesmreload") {
                                   var response = document.getElementById('response');
                                   setTimeout(function(){
                                   		location.reload();
                                   	}, 5000);
 
                             }
-
-                console.log(messageOutput.text);
-	            var response = document.getElementById('response');
+                if (!messageOutput.text.includes("rvtjspxesm")){
+	            var response = document.getElementById('r1');
 	            var p = document.createElement('p');
 	            p.style.wordWrap = 'break-word';
-	            p.appendChild(document.createTextNode( messageOutput.text + " (" + messageOutput.time + ")"));
+	            p.appendChild(document.createTextNode( messageOutput.text ));
 	            response.appendChild(p);
+	            }
 	        }
 

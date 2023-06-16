@@ -3,6 +3,8 @@
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/sockjs-client/sockjs.min.js"></script>
@@ -23,6 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <style>
     .download-btn-cn a {
         color: #5372F0;
@@ -34,6 +37,13 @@
         color: #fff;
     }
   </style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="../static/chat.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="../static/ch.js"></script>
+
 </head>
 <body onload="connect()">
 <script th:inline = "javascript">
@@ -56,7 +66,7 @@
 
 <form id = "form" action="#" method="POST" enctype="multipart/form-data">
     <input type="file" name="file" id="file" multiple>
-    <input type="submit" value="Upload" onclick="reload();">
+    <input type="submit" value="Загрузить" onclick="reload();">
 </form>
     <script  th:inline = "javascript">
 const form = document.getElementById('form');
@@ -94,14 +104,15 @@ sendFile("http://localhost:8080/upload/"+/*[[${id}]]*/,requestOptions);
 
 </script>
     <div>
-    <button id="connect" onclick="connect();">Connect</button>
-    <button id="disconnect" disabled="disabled" onclick="reload();">
-        Disconnect</button><br />
     <div id="conversationDiv">
         <p onclick="location.reload();" id="response"></p>
     </div>
 </div>
+<div>
+
+</div>
 <div class="container show-controls">
+
     <div class="wrapper">
         <div class="video-timeline">
             <div class="progress-area">
@@ -139,7 +150,9 @@ sendFile("http://localhost:8080/upload/"+/*[[${id}]]*/,requestOptions);
                 <button class="fullscreen"><i class="fa-solid fa-expand"></i></button>
             </li>
         </ul>
+
     </div>
+
     <video   id="video" >
 
     </video>
@@ -155,6 +168,57 @@ sendFile("http://localhost:8080/upload/"+/*[[${id}]]*/,requestOptions);
 </script>
 
 </div>
+<div>
+    <div class="container1">
+        <div class="row chat-window col-xs-5 col-md-3" id="chat_window_1" style="margin-left:10px;">
+            <div class="col-xs-12 col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading top-bar">
+                        <div class="col-md-8 col-xs-8">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat</h3>
+                        </div>
+                        <div class="col-md-4 col-xs-4" style="text-align: right;">
+                            <a href="#"><span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span></a>
+                            <a href="#"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>
+                        </div>
+                    </div>
+                    <div class="panel-body msg_container_base">
+                        <div class="col-md-10 col-xs-10 ">
+                            <div class="messages msg_sent">
+                                <div id="conversationDiv1">
+                                    <p id="r1"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input  id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Напишите что-нибудь..." />
+                            <span class="input-group-btn">
+                        <button onclick="send();" class="btn btn-primary btn-sm" id="btn-chat">Отправить</button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-group dropup">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-cog"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#" id="new_chat"><span class="glyphicon glyphicon-plus"></span> Novo</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-list"></span> Ver outras</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-remove"></span> Fechar Tudo</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><span class="glyphicon glyphicon-eye-close"></span> Invisivel</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <script  src="../static/sc.js"></script>
 <script  src="../static/player.js"></script>
 </body>
